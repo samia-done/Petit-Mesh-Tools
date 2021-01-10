@@ -34,7 +34,7 @@ classes = (
     updater.PMT_OT_UpdateAddon,
     operator.PMT_ToolSettings,
     operator.PMT_OT_mesh_extrude_loop_to_region,
-    operator.VIEW3D_PT_edit_putit_mesh_tools
+    operator.VIEW3D_PT_edit_petit_mesh_tools
 )
 
 

@@ -19,7 +19,7 @@ def get_update_candidate_branches(_, __):
 
 def update_panel(self, context):
     panels = (
-        operator.VIEW3D_PT_edit_putit_mesh_tools,
+        operator.VIEW3D_PT_edit_petit_mesh_tools,
     )
     message = "Updating Panel locations has failed"
     try:

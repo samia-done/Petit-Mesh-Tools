@@ -156,12 +156,12 @@ class PMT_OT_mesh_extrude_loop_to_region(bpy.types.Operator):
         return {'FINISHED'}
 
 
-class VIEW3D_PT_edit_putit_mesh_tools(bpy.types.Panel):
+class VIEW3D_PT_edit_petit_mesh_tools(bpy.types.Panel):
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
     bl_category = 'Edit'
     bl_context = "mesh_edit"
-    bl_label = "Putit Mesh Tools"
+    bl_label = "Petit Mesh Tools"
     # bl_options = {'DEFAULT_CLOSED'}
 
     @classmethod
