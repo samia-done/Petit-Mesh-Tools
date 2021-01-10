@@ -5,6 +5,10 @@
 『Petit Mesh Tools』は、Blenderでのメッシュ編集を少し便利にするような機能を追加するアドオンです。  
 Blender 2.83以降に対応しています。
 
+## ダウンロード
+
+[最新バージョンをダウンロードする](https://github.com/samia-done/Petit-Mesh-Tools/releases/latest/download/petit_mesh_tools.zip)  
+
 ## インストール方法
 
 1. Blenderの［編集］メニュー→［プリファレンス］の順にクリックして、［Blenderプリファレンス］画面を開きます。  
