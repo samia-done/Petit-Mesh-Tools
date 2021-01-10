@@ -67,7 +67,7 @@ def register():
     for cls in classes:
         bpy.utils.register_class(cls)
     bpy.types.Scene.PMT_ToolSettings = bpy.props.PointerProperty(type=operator.PMT_ToolSettings)
-    # preferences.update_panel(None, bpy.context)
+    preferences.update_panel(None, bpy.context)
 
     bpy.app.translations.register(__name__, get_translation_dict())
 

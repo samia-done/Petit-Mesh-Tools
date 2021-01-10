@@ -42,7 +42,8 @@ class PMT_AddonPreferences(bpy.types.AddonPreferences):
     category: bpy.props.StringProperty(
         name="Tab Category",
         description="Choose a name for the category of the panel",
-        default="Edit"
+        default="Edit",
+        update=update_panel
     )
 
     # for add-on updater
