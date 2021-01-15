@@ -2,10 +2,6 @@ from typing import Tuple, Iterator
 import bpy
 import bmesh
 import copy
-import time
-import mathutils
-from bmesh.types import BMFace
-from bpy.types import OperatorProperties
 
 
 class PMT_ToolSettings(bpy.types.PropertyGroup):
