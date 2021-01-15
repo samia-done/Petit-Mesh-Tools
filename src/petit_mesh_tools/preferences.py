@@ -39,7 +39,7 @@ def update_panel(self, context):
 class PMT_AddonPreferences(bpy.types.AddonPreferences):
     bl_idname = __package__
 
-    category: bpy.props.StringProperty(
+    category = bpy.props.StringProperty(
         name="Tab Category",
         description="Choose a name for the category of the panel",
         default="Edit",
@@ -47,7 +47,7 @@ class PMT_AddonPreferences(bpy.types.AddonPreferences):
     )
 
     # for add-on updater
-    updater_branch_to_update: bpy.props.EnumProperty(
+    updater_branch_to_update = bpy.props.EnumProperty(
         name="branch",
         description="Target branch to update add-on",
         items=get_update_candidate_branches

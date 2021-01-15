@@ -66,7 +66,7 @@ class PMT_OT_UpdateAddon(bpy.types.Operator):
     bl_description = "Update add-on"
     bl_options = {'REGISTER', 'UNDO'}
 
-    branch_name: bpy.props.StringProperty(
+    branch_name = bpy.props.StringProperty(
         name="Branch Name",
         description="Branch name to update",
         default="",

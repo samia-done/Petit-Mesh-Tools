@@ -19,7 +19,7 @@ class PMT_ToolSettings(bpy.types.PropertyGroup):
     #     min=0.0,
     #     options={'HIDDEN'}
     # )
-    scale: bpy.props.FloatProperty(
+    scale = bpy.props.FloatProperty(
         name="Scale",
         description="Scale",
         default=1.3,
@@ -27,7 +27,7 @@ class PMT_ToolSettings(bpy.types.PropertyGroup):
         options={'HIDDEN'}
     )
 
-    display_extrude_loop: bpy.props.BoolProperty(
+    display_extrude_loop = bpy.props.BoolProperty(
         name="Extrude loop settings",
         description="Scale",
         default=True,
