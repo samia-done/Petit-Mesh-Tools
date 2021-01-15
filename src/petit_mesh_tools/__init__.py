@@ -5,13 +5,17 @@ import csv
 
 if "bpy" in locals():
     import importlib
+    importlib.reload(utils)
     importlib.reload(operator)
     importlib.reload(preferences)
     importlib.reload(updater)
 else:
+    import bpy
+    from . import utils
     from . import operator
     from . import preferences
     from . import updater
+
 import bpy
 
 bl_info = {
