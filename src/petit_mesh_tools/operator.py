@@ -84,7 +84,7 @@ class PMT_OT_mesh_extrude_loop_to_region(bpy.types.Operator):
         current_transform_pivot_point = copy.copy(bpy.context.scene.tool_settings.transform_pivot_point)
         bpy.context.scene.tool_settings.transform_pivot_point = 'MEDIAN_POINT'
 
-        pmt_tool_settings: PMT_ToolSettings = context.scene.PMT_ToolSettings
+        pmt_tool_settings = context.scene.PMT_ToolSettings
         # _scale = (pmt_tool_settings.scale[0], pmt_tool_settings.scale[1], pmt_tool_settings.scale[2])
         _scale = (pmt_tool_settings.scale, pmt_tool_settings.scale, pmt_tool_settings.scale)
 
