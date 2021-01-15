@@ -38,6 +38,20 @@ classes = (
 )
 
 
+def make_annotations(cls):
+    if bpy.app.version < (2, 80):
+        return cls
+    bl_props = {k: v for k, v in cls.__dict__.items() if isinstance(v, tuple)}
+    if bl_props:
+        if '__annotations__' not in cls.__dict__:
+            setattr(cls, '__annotations__', {})
+        annotations = cls.__dict__['__annotations__']
+        for k, v in bl_props.items():
+            annotations[k] = v
+            delattr(cls, k)
+    return cls
+
+
 # 翻訳辞書の取得
 def get_translation_dict():
     translation_dict = {}
@@ -65,6 +79,7 @@ def register():
     updater.register_updater(bl_info)
 
     for cls in classes:
+        make_annotations(cls)
         bpy.utils.register_class(cls)
     bpy.types.Scene.PMT_ToolSettings = bpy.props.PointerProperty(type=operator.PMT_ToolSettings)
     preferences.update_panel(None, bpy.context)
