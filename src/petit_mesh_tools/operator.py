@@ -95,24 +95,9 @@ class PMT_OT_mesh_extrude_loop_to_region(bpy.types.Operator):
             e.select = True
 
             bpy.ops.mesh.loop_multi_select(ring=False)
-            bpy.ops.mesh.duplicate_move(MESH_OT_duplicate={"mode": 1},
-                                        TRANSFORM_OT_translate={"value": (0, 0, 0), "orient_type": 'GLOBAL',
-                                            "orient_matrix": ((0, 0, 0), (0, 0, 0), (0, 0, 0)),
-                                            "orient_matrix_type": 'GLOBAL', "constraint_axis": (False, False, False),
-                                            "mirror": False, "use_proportional_edit": False,
-                                            "proportional_edit_falloff": 'SMOOTH', "proportional_size": 1,
-                                            "use_proportional_connected": False, "use_proportional_projected": False,
-                                            "snap": False, "snap_target": 'CLOSEST', "snap_point": (0, 0, 0),
-                                            "snap_align": False, "snap_normal": (0, 0, 0), "gpencil_strokes": False,
-                                            "cursor_transform": False, "texture_space": False,
-                                            "remove_on_cancel": False,
-                                            "release_confirm": False, "use_accurate": False})
 
-            bpy.ops.transform.resize(value=_scale, orient_type='GLOBAL',
-                                     orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL',
-                                     mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH',
-                                     proportional_size=1, use_proportional_connected=False,
-                                     use_proportional_projected=False)
+            bpy.ops.mesh.duplicate_move()
+            bpy.ops.transform.resize(value=_scale)
 
             for new_edge in self.bm.edges:  # type: bmesh.types.BMEdge
                 if new_edge.select:
