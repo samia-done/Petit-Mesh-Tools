@@ -28,7 +28,7 @@ def update_panel(self, context):
                 bpy.utils.unregister_class(panel)
 
         for panel in panels:
-            panel.bl_category = context.preferences.addons[__package__].preferences.category
+            panel.bl_category = context.user_preferences.addons[__package__].preferences.category if bpy.app.version < (2, 80) else context.preferences.addons[__package__].preferences.category
             bpy.utils.register_class(panel)
 
     except Exception as e:
@@ -42,7 +42,7 @@ class PMT_AddonPreferences(bpy.types.AddonPreferences):
     category = bpy.props.StringProperty(
         name="Tab Category",
         description="Choose a name for the category of the panel",
-        default="Edit",
+        default="Tools" if bpy.app.version < (2, 80) else "Edit",
         update=update_panel
     )
 

@@ -156,7 +156,7 @@ class PMT_OT_mesh_extrude_loop_to_region(bpy.types.Operator):
 
 class VIEW3D_PT_edit_petit_mesh_tools(bpy.types.Panel):
     bl_space_type = 'VIEW_3D'
-    bl_region_type = 'UI'
+    bl_region_type = 'TOOLS' if bpy.app.version < (2, 80) else 'UI'
     bl_category = 'Edit'
     bl_context = "mesh_edit"
     bl_label = "Petit Mesh Tools"
@@ -172,14 +172,16 @@ class VIEW3D_PT_edit_petit_mesh_tools(bpy.types.Panel):
         layout = self.layout
         col = layout.column(align=True)
 
-        split = col.split(factor=0.15, align=True)
+        split = col.split(percentage=0.15, align=True) if bpy.app.version < (2, 80) else col.split(factor=0.15,
+                                                                                                   align=True)
         if pmt_tool_settings.display_extrude_loop:
             split.prop(pmt_tool_settings, "display_extrude_loop", text="", icon='DOWNARROW_HLT')
         else:
             split.prop(pmt_tool_settings, "display_extrude_loop", text="", icon='RIGHTARROW')
 
         split.operator_context = 'INVOKE_DEFAULT'
-        op = split.operator(PMT_OT_mesh_extrude_loop_to_region.bl_idname, text=PMT_OT_mesh_extrude_loop_to_region.bl_label)  # type: PMT_OT_mesh_extrude_loop_to_region
+        op = split.operator(PMT_OT_mesh_extrude_loop_to_region.bl_idname,
+                            text=PMT_OT_mesh_extrude_loop_to_region.bl_label)  # type: PMT_OT_mesh_extrude_loop_to_region
 
         # extrude loop - settings
         if pmt_tool_settings.display_extrude_loop:
