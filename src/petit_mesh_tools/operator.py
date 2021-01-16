@@ -134,7 +134,7 @@ class PMT_OT_mesh_extrude_loop_to_region(bpy.types.Operator):
         bpy.ops.mesh.loop_to_region()
         bpy.ops.mesh.delete(type='FACE')
 
-        count = len(new_edges)-1
+        count = len(new_edges) - 1
         for i in range(count):
             if 0 < i < count:
                 new_edges[i].select = True
