@@ -98,8 +98,9 @@ class PMT_OT_mesh_extrude_loop_to_region(bpy.types.Operator):
             return {'FINISHED'}
 
     def execute(self, context):
-        current_transform_pivot_point = copy.copy(bpy.context.scene.tool_settings.transform_pivot_point)
-        bpy.context.scene.tool_settings.transform_pivot_point = 'MEDIAN_POINT'
+        # TODO:ピボットポイントが取得できない場合のエラー処理を入れる。
+        current_transform_pivot_point = copy.copy(self.get_pivot_point(area_type='VIEW_3D'))
+        self.set_pivot_point(pivot_point='MEDIAN_POINT', area_type='VIEW_3D')
 
         pmt_tool_settings = context.scene.PMT_ToolSettings
         # _scale = (pmt_tool_settings.scale[0], pmt_tool_settings.scale[1], pmt_tool_settings.scale[2])
@@ -148,7 +149,7 @@ class PMT_OT_mesh_extrude_loop_to_region(bpy.types.Operator):
         bpy.ops.mesh.bridge_edge_loops()
         bpy.ops.mesh.select_all(action='DESELECT')
 
-        bpy.context.scene.tool_settings.transform_pivot_point = current_transform_pivot_point
+        self.set_pivot_point(pivot_point=current_transform_pivot_point, area_type='VIEW_3D')
 
         return {'FINISHED'}
 
