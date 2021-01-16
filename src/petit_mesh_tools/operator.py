@@ -148,8 +148,8 @@ class VIEW3D_PT_edit_petit_mesh_tools(bpy.types.Panel):
     def poll(cls, context):
         return True
 
-    def draw(self, context: bpy.types.Context):
-        pmt_tool_settings: PMT_ToolSettings = context.scene.PMT_ToolSettings
+    def draw(self, context):
+        pmt_tool_settings = context.scene.PMT_ToolSettings  # type: PMT_ToolSettings
 
         layout = self.layout
         col = layout.column(align=True)
