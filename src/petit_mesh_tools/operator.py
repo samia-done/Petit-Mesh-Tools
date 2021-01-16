@@ -43,6 +43,23 @@ class PMT_OT_mesh_extrude_loop_to_region(bpy.types.Operator):
         self.bm = None
         self.selected_edges = []
 
+    def get_pivot_point(self, area_type='VIEW_3D'):
+        if hasattr(bpy.context.space_data, "pivot_point"):
+            return bpy.context.space_data.pivot_point
+        elif bpy.app.version >= (2, 80) and area_type == 'VIEW_3D':
+            return bpy.context.scene.tool_settings.transform_pivot_point
+        else:
+            self.report({'ERROR'}, "Failed to get pivot point.")
+            return 'CURSOR'
+
+    def set_pivot_point(self, pivot_point, area_type='VIEW_3D'):
+        if hasattr(bpy.context.space_data, "pivot_point"):
+            bpy.context.space_data.pivot_point = pivot_point
+        elif bpy.app.version >= (2, 80) and area_type == 'VIEW_3D':
+            bpy.context.scene.tool_settings.transform_pivot_point = pivot_point
+        else:
+            self.report({'ERROR'}, "Failed to set pivot point.")
+
     def get_selected_edges(self, context):
 
         self.active_object = context.active_object
