@@ -93,7 +93,6 @@ class PMT_OT_mesh_extrude_loop_to_region(bpy.types.Operator):
         new_edges = []
         for i, e in enumerate(self.selected_edges):
             e.select = True
-            # print("エッジの境界:", e.is_boundary)
 
             bpy.ops.mesh.loop_multi_select(ring=False)
             bpy.ops.mesh.duplicate_move(MESH_OT_duplicate={"mode": 1},
